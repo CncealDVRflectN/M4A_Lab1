@@ -1,5 +1,5 @@
 public class Solution {
-    private static final double epsilon = 0.00001;
+    private static final double epsilon = 0.000001;
     private static double from;
     private static double to;
     private static double aprior;
@@ -23,9 +23,9 @@ public class Solution {
 
     private static double calculateApproximateX() {
         double left = 3;
-        double right = 29;
+        double right = 7.4;
         double tmp;
-        while (right - left >= 7) {
+        while (right - left >= 2.3) {
             tmp = (left + right) / 2;
             if (calculateF(left) * calculateF(tmp) < 0) {
                 right = tmp;
