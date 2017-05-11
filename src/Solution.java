@@ -22,10 +22,10 @@ public class Solution {
     }
 
     private static double calculateApproximateX() {
-        double left = 3;
-        double right = 7.4;
+        double left = 1;
+        double right = 6.5;
         double tmp;
-        while (right - left >= 2.3) {
+        while (right - left >= 10) {
             tmp = (left + right) / 2;
             if (calculateF(left) * calculateF(tmp) < 0) {
                 right = tmp;
@@ -53,14 +53,10 @@ public class Solution {
     private static boolean checkTheoremConditions(double xApprox) {
         double delta = (to - from) / 2;
         double m = Math.abs(xApprox - calculateFi(xApprox));
-        double q = calculateFiDeriv(xApprox);
-        double buf;
-        for (double i = from; i <= to; i += epsilon) {
-            buf = calculateFiDeriv(i);
-            if (q < buf) {
-                q = buf;
-            }
-        }
+        double q = Math.max(calculateFiDeriv(from), calculateFiDeriv(to));
+        System.out.println("q: " + q);
+        System.out.println("m: " + m);
+        System.out.println("delta: " + delta);
         aprior = Math.log(epsilon * (1 - q) / m) / Math.log(q);
         return (m / (1 - q)) <= delta;
     }
