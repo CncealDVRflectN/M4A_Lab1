@@ -53,7 +53,7 @@ public class Solution {
     private static boolean checkTheoremConditions(double xApprox) {
         double delta = (to - from) / 2;
         double m = Math.abs(xApprox - calculateFi(xApprox));
-        double q = Math.max(calculateFiDeriv(from), calculateFiDeriv(to));
+        double q = Math.max(Math.abs(calculateFiDeriv(from)), Math.abs(calculateFiDeriv(to)));
         System.out.println("q: " + q);
         System.out.println("m: " + m);
         System.out.println("delta: " + delta);
